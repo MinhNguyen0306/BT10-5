@@ -8,39 +8,43 @@ namespace BaitapDiemDanh_10_5_LeMinh
 {
     class Program
     {
-        int timsomax(int[] a, int n)
+        static int timsomax(int[] a_235, int n)
         {
-            int max = a[0];
-            for (int i = 0; i < a.Length; i++)
+            int max = a_235[0];
+            for (int i = 0; i < a_235.Length; i++)
             {
-                if (max < a[i])
-                    max = a[i];
+                if (max < a_235[i])
+                    max = a_235[i];
             }
             return max;
         }
 
         static void Main(string[] args)
         {
-            int[] arr = { 12, 4, 10, 4, 2, 7, -2, -6 , 2, 6};
+            int[] a_235 = { 12, 4, 10, 4, 2, 7, -2, -6 , 2, 6};
+            int n = 10;
             //sử dụng vòng lặp for để hiển thị các phần tử trong mảng ra màn hình
             Console.Write("\n Cac phan tu trong mang la: ");
-            for (int i = 0; i < arr.Length; i++)
+            for (int i = 0; i < a_235.Length; i++)
             {
-                Console.Write(arr[i] + " ");
+                Console.Write(a_235[i] + " ");
             }
-            Console.WriteLine(" pt lon nhat:  " + timsomax(arr,10));
-            Console.WriteLine(" so lan xuat hien max:  " + Timsolanxuathien(arr, 10));
-
+            Console.WriteLine(" pt lon nhat: " + timsomax(a_235, n));
+            Console.WriteLine(" so lan xuat hien max:  " + Timsolanxuathien(a_235, n));
+            Console.WriteLine("Săp xep day so tang: ");
+            mangtang(a_235, n);
+            Console.WriteLine("Săp xep day so giam: ");
+            manggiam(a_235, n);
         }
 
-        int Timsolanxuathien(int[] a, int n)
+        static int Timsolanxuathien(int[] a_235, int n)
         {
-            mangtang(a, n);
+            mangtang(a_235, n);
             int max = 0;
             int dem = 1;
             for (int i = 0; i < n; i++)
             {
-                if (a[i] == a[i + 1])
+                if (a_235[i] == a_235[i + 1])
                 {
                     dem++;
                     if (dem > max)
@@ -58,46 +62,46 @@ namespace BaitapDiemDanh_10_5_LeMinh
             return max;
         }
 
-        public void mangtang(int[] arr, int n)
+        public static void mangtang(int[] a_235, int n)
         {
             for (int i = 0; i < n; i++)
             {
                 for (int j = i + 1; j < n; j++)
                 {
-                    if (arr[i] > arr[j])
+                    if (a_235[i] > a_235[j])
                     {
-                        int temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
+                        int temp = a_235[i];
+                        a_235[i] = a_235[j];
+                        a_235[j] = temp;
                     }
                 }
             }
 
             for (int i = 0; i < n; i++)
             {
-                Console.Write(arr[i] + " ");
+                Console.Write(a_235[i] + " ");
             }
         }
 
-        public void manggiam(int[] arr, int n)
+        public static void manggiam(int[] a_235, int n)
         {
             for (int i = 0; i < n; i++)
             {
                 for (int j = i + 1; j < n; j++)
                 {
-                    if (arr[i] < arr[j])
+                    if (a_235[i] < a_235[j])
                     {
-                        int temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
+                        int temp = a_235[i];
+                        a_235[i] = a_235[j];
+                        a_235[j] = temp;
                     }
                 }
             }
 
             for (int i = 0; i < n; i++)
             {
-                Console.Write(arr[i] + " ");
+                Console.Write(a_235[i] + " ");
             }
         }
-        }
+    }
 }
